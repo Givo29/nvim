@@ -10,12 +10,12 @@
 --
 
 --[[ General Configuration ]]
---
 vim.opt.number = true
 vim.wo.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.mouse = ""
 vim.opt.tabstop = 2
+vim.opt["guicursor"] = ""
 
 --[[ 
  ________  _______   _____ ______   ________  ________   
@@ -29,7 +29,6 @@ vim.opt.tabstop = 2
 --
 
 --[[ General Remap ]]
---
 vim.g.mapleader = " "
 
 -- Exit File
