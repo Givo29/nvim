@@ -17,6 +17,16 @@ vim.opt.mouse = ""
 vim.opt.tabstop = 2
 vim.opt["guicursor"] = ""
 
+-- Highlight On Yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+	group = vim.api.nvim_create_augroup("highlight_yank", {}),
+	desc = "Hightlight selection on yank",
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 40 })
+	end,
+})
+
 --[[ 
  ________  _______   _____ ______   ________  ________   
 |\   __  \|\  ___ \ |\   _ \  _   \|\   __  \|\   __  \  
