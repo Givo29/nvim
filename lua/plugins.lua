@@ -69,8 +69,5 @@ return require("packer").startup(function(use)
 		},
 	})
 	-- Colorscheme
-	use({
-		"catppuccin/nvim",
-		as = "catppuccin",
-	})
+	use({ "folke/tokyonight.nvim" })
 end)

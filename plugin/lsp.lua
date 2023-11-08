@@ -93,7 +93,7 @@ require("mason-null-ls").setup({
 		"prisma-language-server",
 		"flake8",
 	},
-	automatic_installation = false,
+	automatic_installation = true,
 	handlers = {},
 })
 require("null-ls").setup({

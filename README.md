@@ -4,6 +4,8 @@ This config includes tools I use often that improve my workflow and aims to be a
 ## Installation
 ### Prerequisites
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [npm](https://www.npmjs.com/package/npm)
+- [python-venv](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#installing-virtualenv)
 - [Mason Requirements](https://github.com/williamboman/mason.nvim#requirements)
 ### Setup
 1. [Install Packer](https://github.com/wbthomason/packer.nvim#quickstart)
