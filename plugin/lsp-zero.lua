@@ -6,7 +6,7 @@ lsp_zero.on_attach(function(client, bufnr)
   local keymap_opts = { buffer = bufnr }
 
   lsp_zero.default_keymaps(keymap_opts)
-  lsp_zero.buffer_autoformat()
+  lsp_zero.buffer_autoformat({ async = false, timeout_ms = 10000 })
 
   vim.keymap.set("n", "gd", function()
     vim.lsp.buf.definition()
@@ -19,6 +19,10 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("n", "gt", function()
     vim.lsp.buf.type_definition()
   end, keymap_opts)
+
+  vim.keymap.set("n", "gq", function()
+    vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
+  end, keymap_opts)
 end)
 
 -- Custom icons
@@ -29,18 +33,18 @@ lsp_zero.set_sign_icons({
   info = "»",
 })
 
-vim.diagnostic.config({
-  virtual_text = true,
-  signs = true,
-  update_in_insert = true,
-  underline = true,
-  severity_sort = true,
-  float = true,
-})
-
+lsp_zero.setup()
 
 -- Set up LSPs
 require("mason").setup({})
+require("mason-tool-installer").setup({
+  ensure_installed = { "prettier",
+    "prettierd",
+  },
+  auto_update = true,
+  run_on_start = true,
+  debounce_hours = 5
+})
 require("mason-lspconfig").setup({
   ensure_installed = {
     "ansiblels",
@@ -52,6 +56,7 @@ require("mason-lspconfig").setup({
     "html",
     "jsonls",
     "lua_ls",
+    "pylsp",
     "pyright",
     "rust_analyzer",
     "sqlls",
@@ -61,42 +66,58 @@ require("mason-lspconfig").setup({
   },
   handlers = {
     lsp_zero.default_setup,
-  },
-})
--- Setup LSP Tools (mostly auto formatters)
-require("mason-tool-installer").setup({
-  ensure_installed = {
-    "black",
-    "prettier",
-    "prettierd",
-    "stylua",
-  },
-  auto_update = true,
-  run_on_start = true,
-  debounce_hours = 5,
-  handlers = {
-    lsp_zero.default_setup,
-  }
-})
-
-
--- Custom LSP configs
-local capabilities = cmp_nvim_lsp.default_capabilities()
-lspconfig["lua_ls"].setup({
-  capabilities = capabilities,
-  settings = { -- custom settings for lua
-    Lua = {
-      -- make the language server recognize "vim" global
-      diagnostics = {
-        globals = { "vim" },
-      },
-      workspace = {
-        -- make language server aware of runtime files
-        library = {
-          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-          [vim.fn.stdpath("config") .. "/lua"] = true,
+    -- custom settings for lua
+    lua_ls = function()
+      lspconfig["lua_ls"].setup({
+        settings = {
+          Lua = {
+            -- make the language server recognize "vim" global
+            diagnostics = {
+              globals = { "vim" },
+            },
+            workspace = {
+              -- make language server aware of runtime files
+              library = {
+                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                [vim.fn.stdpath("config") .. "/lua"] = true,
+              },
+            },
+          },
         },
-      },
-    },
+      })
+    end,
+    -- custom settings for python
+    pylsp = function()
+      require("lspconfig").pylsp.setup({
+        settings = {
+          pylsp = {
+            plugins = {
+              -- Formatter options
+              autopep8 = { enabled = false },
+              yapf = { enabled = false },
+              black = { enabled = true },
+
+              -- Linter options
+              pylint = { enabled = true, executable = "pylint" },
+              pyflakes = { enabled = false },
+              pycodestyle = { enabled = false },
+
+              -- import sorting
+              pyls_isort = { enabled = true },
+            }
+          }
+        },
+      })
+    end,
   },
+})
+
+-- Diagnostic settings
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  update_in_insert = true,
+  underline = true,
+  severity_sort = true,
+  float = true,
 })
