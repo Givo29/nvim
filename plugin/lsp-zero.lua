@@ -20,7 +20,7 @@ lsp_zero.on_attach(function(client, bufnr)
     vim.lsp.buf.type_definition()
   end, keymap_opts)
 
-  vim.keymap.set("n", "gq", function()
+  vim.keymap.set("n", "<leader>f", function()
     vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
   end, keymap_opts)
 end)
