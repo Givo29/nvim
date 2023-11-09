@@ -37,14 +37,17 @@ lsp_zero.setup()
 
 -- Set up LSPs
 require("mason").setup({})
+-- Extra mason tools
 require("mason-tool-installer").setup({
-  ensure_installed = { "prettier",
+  ensure_installed = {
+    "prettier",
     "prettierd",
   },
   auto_update = true,
   run_on_start = true,
   debounce_hours = 5
 })
+-- Main LSPs
 require("mason-lspconfig").setup({
   ensure_installed = {
     "ansiblels",
@@ -66,7 +69,7 @@ require("mason-lspconfig").setup({
   },
   handlers = {
     lsp_zero.default_setup,
-    -- custom settings for lua
+    -- Custom settings for lua
     lua_ls = function()
       lspconfig["lua_ls"].setup({
         settings = {
@@ -86,7 +89,7 @@ require("mason-lspconfig").setup({
         },
       })
     end,
-    -- custom settings for python
+    -- Custom settings for python
     pylsp = function()
       require("lspconfig").pylsp.setup({
         settings = {
@@ -110,14 +113,4 @@ require("mason-lspconfig").setup({
       })
     end,
   },
-})
-
--- Diagnostic settings
-vim.diagnostic.config({
-  virtual_text = true,
-  signs = true,
-  update_in_insert = true,
-  underline = true,
-  severity_sort = true,
-  float = true,
 })

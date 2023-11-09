@@ -1,9 +1,9 @@
 --[[
- ________  ________  ________   ________ ___  ________     
-|\   ____\|\   __  \|\   ___  \|\  _____\\  \|\   ____\    
-\ \  \___|\ \  \|\  \ \  \\ \  \ \  \__/\ \  \ \  \___|    
- \ \  \    \ \  \\\  \ \  \\ \  \ \   __\\ \  \ \  \  ___  
-  \ \  \____\ \  \\\  \ \  \\ \  \ \  \_| \ \  \ \  \|\  \ 
+ ________  ________  ________   ________ ___  ________
+|\   ____\|\   __  \|\   ___  \|\  _____\\  \|\   ____\
+\ \  \___|\ \  \|\  \ \  \\ \  \ \  \__/\ \  \ \  \___|
+ \ \  \    \ \  \\\  \ \  \\ \  \ \   __\\ \  \ \  \  ___
+  \ \  \____\ \  \\\  \ \  \\ \  \ \  \_| \ \  \ \  \|\  \
    \ \_______\ \_______\ \__\\ \__\ \__\   \ \__\ \_______\
     \|_______|\|_______|\|__| \|__|\|__|    \|__|\|_______|
 ]]
@@ -22,22 +22,32 @@ vim.opt["guicursor"] = ""
 
 -- Highlight On Yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-	group = vim.api.nvim_create_augroup("highlight_yank", {}),
-	desc = "Hightlight selection on yank",
-	pattern = "*",
-	callback = function()
-		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 40 })
-	end,
+  group = vim.api.nvim_create_augroup("highlight_yank", {}),
+  desc = "Hightlight selection on yank",
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 40 })
+  end,
 })
 
---[[ 
- ________  _______   _____ ______   ________  ________   
-|\   __  \|\  ___ \ |\   _ \  _   \|\   __  \|\   __  \  
-\ \  \|\  \ \   __/|\ \  \\\__\ \  \ \  \|\  \ \  \|\  \ 
+-- Diagnostic settings
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  update_in_insert = true,
+  underline = true,
+  severity_sort = true,
+  float = true,
+})
+
+--[[
+ ________  _______   _____ ______   ________  ________
+|\   __  \|\  ___ \ |\   _ \  _   \|\   __  \|\   __  \
+\ \  \|\  \ \   __/|\ \  \\\__\ \  \ \  \|\  \ \  \|\  \
  \ \   _  _\ \  \_|/_\ \  \\|__| \  \ \   __  \ \   ____\
   \ \  \\  \\ \  \_|\ \ \  \    \ \  \ \  \ \  \ \  \___|
-   \ \__\\ _\\ \_______\ \__\    \ \__\ \__\ \__\ \__\   
-    \|__|\|__|\|_______|\|__|     \|__|\|__|\|__|\|__|                                                         
+   \ \__\\ _\\ \_______\ \__\    \ \__\ \__\ \__\ \__\
+    \|__|\|__|\|_______|\|__|     \|__|\|__|\|__|\|__|
 ]]
 --
 
@@ -72,5 +82,5 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader><leader>", function()
-	vim.cmd("so")
+  vim.cmd("so")
 end)
