@@ -40,6 +40,7 @@ require("mason").setup({})
 -- Extra mason tools
 require("mason-tool-installer").setup({
   ensure_installed = {
+    "black",
     "prettier",
     "prettierd",
   },
