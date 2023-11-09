@@ -13,8 +13,11 @@
 vim.opt.number = true
 vim.wo.relativenumber = true
 vim.opt.termguicolors = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 vim.opt.mouse = ""
 vim.opt.tabstop = 2
+vim.opt.ignorecase = true
 vim.opt["guicursor"] = ""
 
 -- Highlight On Yank
