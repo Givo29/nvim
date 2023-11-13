@@ -50,7 +50,7 @@ return require("packer").startup(function(use)
     requires = {
       { 'williamboman/mason.nvim' },
       { 'williamboman/mason-lspconfig.nvim' },
-      { "WhoIsSethDaniel/mason-tool-installer.nvim" },
+      { "nvimtools/none-ls.nvim" },
       -- LSP Support
       { 'neovim/nvim-lspconfig' },
       -- Autocompletion
