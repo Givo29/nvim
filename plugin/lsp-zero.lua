@@ -74,14 +74,19 @@ require("mason-lspconfig").setup({
       lspconfig.pylsp.setup({
         settings = {
           pylsp = {
+            configurationSources = "flake8",
             plugins = {
-              -- Linter options
-              pylint = { enabled = true, executable = "pylint" },
-              pycodestyle = { enabled = true, maxLineLength = 88 },
-              pyflakes = { enabled = false },
-
-              -- import sorting
-              pyls_isort = { enabled = true },
+              -- Turn formatters off to make way for null-ls black
+              autopep8 = { enabled = false },
+              -- Configure flake8 to meet black's standards
+              flake8 = {
+                enabled = true,
+                maxLineLength = 88,
+                extendIgnore = {
+                  "E203"
+                }
+              },
+              pycodestyle = { enabled = false },
             },
           },
         },

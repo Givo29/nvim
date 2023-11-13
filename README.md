@@ -24,6 +24,7 @@ This config includes tools I use often that improve my workflow and aims to be a
 - [npm](https://www.npmjs.com/package/npm)
 - [python-venv](https://virtualenv.pypa.io/en/latest/installation.html)
 - [prettierd](https://www.npmjs.com/package/@fsouza/prettierd#installation-guide)
+- [black](https://github.com/psf/black#installation)
 
 ### Install
 
