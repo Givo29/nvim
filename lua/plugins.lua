@@ -39,6 +39,8 @@ return require("packer").startup(function(use)
 
   use({
     "theprimeagen/harpoon",
+    branch = "harpoon2",
+    requires = { "nvim-lua/plenary.nvim" }
   })
   use({
     "nvim-treesitter/nvim-treesitter",
