@@ -163,6 +163,8 @@ nvim
 | n    | gd        | Go to definition      |
 | n    | gD        | Go to declaration     |
 | n    | gt        | Go to type definition |
+| n    | gr        | Find references       |
+| n    | gR        | Rename object         |
 | n    | gq        | Format file           |
 
 ### Telescope

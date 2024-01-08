@@ -19,6 +19,14 @@ lsp_zero.on_attach(function(_, bufnr)
     vim.lsp.buf.type_definition()
   end, keymap_opts)
 
+  vim.keymap.set("n", "gr", function()
+    vim.lsp.buf.references()
+  end, keymap_opts)
+
+  vim.keymap.set("n", "gR", function()
+    vim.lsp.buf.rename()
+  end, keymap_opts)
+
   vim.keymap.set("n", "gq", function()
     vim.lsp.buf.format({
       async = false,
