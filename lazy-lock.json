@@ -13,6 +13,7 @@
   "mason-nvim-lint": { "branch": "main", "commit": "b579a00ee39dcd590b1023028dc8fb3d203a67b0" },
   "mason.nvim": { "branch": "main", "commit": "e2f7f9044ec30067bc11800a9e266664b88cda22" },
   "neodev.nvim": { "branch": "main", "commit": "46aa467dca16cf3dfe27098042402066d2ae242d" },
+  "nightfly": { "branch": "master", "commit": "19efaf31cbe15a429cb3ca6ac9c9fce13275045b" },
   "nvim-cmp": { "branch": "main", "commit": "ae644feb7b67bf1ce4260c231d1d4300b19c6f30" },
   "nvim-lint": { "branch": "master", "commit": "ad0fe35e80f5cd31a0f19176d7b30e5c3011119d" },
   "nvim-lsp-file-operations": { "branch": "master", "commit": "92a673de7ecaa157dd230d0128def10beb56d103" },
