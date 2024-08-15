@@ -129,8 +129,11 @@ return {
 								completion = {
 									callSnippet = "Replace",
 								},
-								format = {
-									enable = false,
+								workspace = {
+									library = {
+										[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+										[vim.fn.stdpath("config") .. "/lua"] = true,
+									},
 								},
 							},
 						},
@@ -141,6 +144,11 @@ return {
 	end,
 
 	vim.diagnostic.config({
+		virtual_text = true,
+		signs = true,
+		update_in_insert = true,
+		underline = true,
+		severity_sort = true,
 		float = {
 			focusable = false,
 			style = "minimal",
