@@ -1,19 +1,29 @@
+-- Define nvim-lint linters here
+local linting_servers = { "pylint", "eslint_d", "cspell" }
+
 return {
 	"mfussenegger/nvim-lint",
+	dependencies = {
+		"rshkarin/mason-nvim-lint",
+	},
 	event = {
 		"BufReadPre",
 		"BufNewFile",
 	},
 	config = function()
 		local lint = require("lint")
+		require("mason-nvim-lint").setup({
+			ensure_installed = linting_servers,
+			automatic_installation = false,
+		})
 
 		lint.linters_by_ft = {
 			javascript = { "eslint_d" },
 			typescript = { "eslint_d" },
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
-			svelte = { "eslint_d" },
 			python = { "pylint" },
+			["*"] = { "cspell " },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

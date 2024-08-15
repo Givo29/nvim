@@ -1,8 +1,16 @@
+-- Define conform.nvim formatting servers here
+local formatting_servers = { "prettierd", "stylua", "isort", "black", "codespell" }
+
 return {
 	"stevearc/conform.nvim",
+	dependencies = { "zapling/mason-conform.nvim" },
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local conform = require("conform")
+		require("mason-conform").setup({
+			ensure_installed = formatting_servers,
+			automatic_installation = false,
+		})
 
 		conform.setup({
 			formatters_by_ft = {
@@ -17,6 +25,8 @@ return {
 				markdown = { "prettierd", "prettier", stop_after_first = true },
 				lua = { "stylua" },
 				python = { "isort", "black" },
+				["*"] = { "codespell" },
+				["_"] = { "trim_whitespace " },
 			},
 			format_on_save = {
 				lsp_fallback = true,
