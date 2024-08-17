@@ -1,3 +1,5 @@
+require("config.lazy")
+
 vim.opt.number = true
 vim.wo.relativenumber = true
 vim.opt.termguicolors = true
