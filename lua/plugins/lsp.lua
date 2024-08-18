@@ -51,12 +51,6 @@ return {
                 opts.desc = "See available code actions"
                 keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
-                opts.desc = "Show buffer diagnostics"
-                keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
-
-                opts.desc = "Show line diagnostics"
-                keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-
                 opts.desc = "Show documentation for what is under cursor"
                 keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
