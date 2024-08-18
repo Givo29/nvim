@@ -6,6 +6,7 @@ vim.opt.termguicolors = true
 vim.opt.mouse = ""
 vim.opt.ignorecase = true
 vim.opt["guicursor"] = ""
+vim.opt.signcolumn = "yes"
 
 -- Fixing Indentation
 vim.opt.expandtab = true
