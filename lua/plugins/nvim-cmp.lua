@@ -13,11 +13,16 @@ return {
         },
         "saadparwaiz1/cmp_luasnip",     -- for autocompletion
         "rafamadriz/friendly-snippets", -- useful snippets
+        {
+            "zbirenbaum/copilot-cmp",
+            after = { "copilot.lua" },
+        },
     },
     config = function()
         local cmp = require("cmp")
 
         local luasnip = require("luasnip")
+        require("copilot_cmp").setup()
 
         -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
         require("luasnip.loaders.from_vscode").lazy_load()
@@ -42,10 +47,11 @@ return {
             }),
             -- sources for autocompletion
             sources = cmp.config.sources({
-                { name = "nvim_lsp" },
-                { name = "luasnip" }, -- snippets
-                { name = "buffer" },  -- text within current buffer
-                { name = "path" },    -- file system paths
+                { name = "nvim_lsp", group_index = 1 },
+                { name = "luasnip",  group_index = 1 }, -- snippets
+                { name = "buffer",   group_index = 1 }, -- text within current buffer
+                { name = "path",     group_index = 1 }, -- file system paths
+                { name = "copilot",  group_index = 2 },
             }),
         })
     end,

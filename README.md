@@ -45,6 +45,8 @@ git clone git@github.com:Givo29/nvim ~/.config/nvim
 
 ### completion
 
+- [zbirenbaum/copilot.lua](https://github.com/zbirenbaum/copilot.lua)
+- [zbirenbaum/copilot-cmp](https://github.com/zbirenbaum/copilot-cmp)
 - [hrsh7th/nvim-cmp](https://dotfyle.com/plugins/hrsh7th/nvim-cmp)
 
 ### diagnostics
