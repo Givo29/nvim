@@ -4,7 +4,21 @@
 <a href="https://dotfyle.com/Givo29/nvim"><img src="https://dotfyle.com/Givo29/nvim/badges/leaderkey?style=flat" /></a>
 <a href="https://dotfyle.com/Givo29/nvim"><img src="https://dotfyle.com/Givo29/nvim/badges/plugin-manager?style=flat" /></a>
 
-## Install Instructions
+## Installation
+
+### General Dependencies
+
+- Neovim 0.9+
+- [RipGrep](https://github.com/BurntSushi/ripgrep)
+
+### LSP/Formatting/Linting Dependencies
+
+> Optional dependencies based on your preferred LSPs and what [Mason](https://github.com/williamboman/mason.nvim) is installing.
+
+- [NodeJS](https://nodejs.org/en)
+- Python 3.x Virtual Environment
+
+### Instructions
 
 > Install requires Neovim 0.9+. Always review the code before installing a configuration.
 
