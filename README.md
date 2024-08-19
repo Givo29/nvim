@@ -142,15 +142,15 @@ git clone git@github.com:Givo29/nvim ~/.config/nvim
 
 ### Cmp (Autocomplete)
 
-| Mode | Keystroke | Action                         |
-| ---- | --------- | ------------------------------ |
-| i    | <C-Space> | Show autocomplete suggestions  |
-| i    | <C-e>     | Close autocomplete suggestions |
-| i    | <CR>      | Accept selected suggestion     |
-| i    | <C-k>     | Previous suggestion            |
-| i    | <C-j>     | Next suggestion                |
-| i    | <C-b>     | Scroll docs up                 |
-| i    | <C-f>     | Scroll docs down               |
+| Mode | Keystroke  | Action                         |
+| ---- | ---------- | ------------------------------ |
+| i    | \<C-Space> | Show autocomplete suggestions  |
+| i    | \<C-e>     | Close autocomplete suggestions |
+| i    | \<CR>      | Accept selected suggestion     |
+| i    | \<C-k>     | Previous suggestion            |
+| i    | \<C-j>     | Next suggestion                |
+| i    | \<C-b>     | Scroll docs up                 |
+| i    | \<C-f>     | Scroll docs down               |
 
 ### ToggleTerm
 
