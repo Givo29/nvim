@@ -1,5 +1,5 @@
 -- Define conform.nvim formatting servers here
-local formatting_servers = { "prettierd", "isort", "black", "codespell" }
+local formatting_servers = { "isort", "ruff", "prettierd", "codespell" }
 
 return {
     "stevearc/conform.nvim",
@@ -23,7 +23,7 @@ return {
                 json = { "prettierd", "prettier", stop_after_first = true },
                 yaml = { "prettierd", "prettier", stop_after_first = true },
                 markdown = { "prettierd", "prettier", stop_after_first = true },
-                python = { "isort", "black" },
+                python = { "isort", "ruff_format" },
                 ["*"] = { "codespell" },
                 ["_"] = { "trim_whitespace" },
             },

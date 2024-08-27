@@ -1,5 +1,5 @@
 -- Define nvim-lspconfig LSP servers here
-local lsp_servers = { "pylsp", "lua_ls", "tsserver", "tailwindcss", "emmet_ls", "bashls" }
+local lsp_servers = { "ruff", "lua_ls", "tsserver", "tailwindcss", "emmet_ls", "bashls" }
 
 return {
     "neovim/nvim-lspconfig",
@@ -85,18 +85,16 @@ return {
                         capabilities = capabilities,
                     })
                 end,
-                ["pylsp"] = function()
-                    -- configure python language server
-                    lspconfig["pylsp"].setup({
-                        capabilities = capabilities,
-                        settings = {
-                            pylsp = {
-                                pycodestyle = {
-                                    ignore = { "W391" },
-                                    maxLineLength = 100,
+                ["ruff"] = function()
+                    lspconfig["ruff"].setup({
+                        init_options = {
+                            settings = {
+                                lint = {
+                                    extendSelect = { "I", "W", "N", "B", "A", "Q", "C4" },
+                                    ignore = { "W391" }
                                 },
-                            },
-                        },
+                            }
+                        }
                     })
                 end,
                 ["emmet_ls"] = function()

@@ -1,5 +1,5 @@
 -- Define nvim-lint linters here
-local linting_servers = { "pylint", "eslint_d", "cspell" }
+local linting_servers = { "eslint_d", "cspell" }
 
 return {
     "mfussenegger/nvim-lint",
@@ -18,7 +18,6 @@ return {
         })
 
         lint.linters_by_ft = {
-            python = { "pylint" },
             javascript = { "eslint_d" },
             typescript = { "eslint_d" },
             javascriptreact = { "eslint_d" },
