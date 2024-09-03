@@ -66,6 +66,7 @@ return {
                 end,
                 ["ruff"] = function()
                     lspconfig["ruff"].setup({
+                        capailities = capabilities,
                         init_options = {
                             settings = {
                                 lint = {
