@@ -1,5 +1,5 @@
 -- Define conform.nvim formatting servers here
-local formatting_servers = { "ruff_organize_imports", "ruff_format", "prettierd", "codespell" }
+local formatting_servers = { "ruff", "prettierd", "codespell" }
 
 return {
     "stevearc/conform.nvim",
