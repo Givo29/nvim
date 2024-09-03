@@ -53,18 +53,6 @@ return {
         -- used to enable autocompletion (assign to every lsp server config)
         local capabilities = cmp_nvim_lsp.default_capabilities()
 
-        -- Change the Diagnostic symbols in the sign column (gutter)
-        vim.diagnostic.config({
-            signs = {
-                text = {
-                    [vim.diagnostic.severity.INFO]  = " ",
-                    [vim.diagnostic.severity.HINT]  = "󰠠 ",
-                    [vim.diagnostic.severity.WARN]  = " ",
-                    [vim.diagnostic.severity.ERROR] = " ",
-                }
-            }
-        })
-
         -- Set Mason LSPs Here
         mason_lspconfig.setup({
             ensure_installed = lsp_servers,
@@ -127,7 +115,14 @@ return {
 
     vim.diagnostic.config({
         virtual_text = true,
-        signs = true,
+        signs = {
+            text = {
+                [vim.diagnostic.severity.INFO]  = "",
+                [vim.diagnostic.severity.HINT]  = "󰠠",
+                [vim.diagnostic.severity.WARN]  = "",
+                [vim.diagnostic.severity.ERROR] = "",
+            }
+        },
         update_in_insert = true,
         underline = true,
         severity_sort = true,
