@@ -109,14 +109,9 @@ return {
                         capabilities = capabilities,
                         settings = {
                             Lua = {
-                                -- make the language server recognize "vim" global
-                                diagnostics = {
-                                    globals = { "vim" },
-                                },
-                                completion = {
-                                    callSnippet = "Replace",
-                                },
+                                -- Setup lua_ls for neovim
                                 workspace = {
+                                    checkThirdParty = false,
                                     library = {
                                         [vim.fn.expand("$VIMRUNTIME/lua")] = true,
                                         [vim.fn.stdpath("config") .. "/lua"] = true,
