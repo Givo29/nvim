@@ -8,7 +8,7 @@
 
 ### General Dependencies
 
-- Neovim 0.9+
+- Neovim 0.11+
 - [RipGrep](https://github.com/BurntSushi/ripgrep)
 
 ### LSP/Formatting/Linting Dependencies
