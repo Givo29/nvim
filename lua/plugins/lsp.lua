@@ -16,7 +16,7 @@ return {
 
 				-- set keybinds
 				opts.desc = "Show LSP references"
-				vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+				vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 
 				opts.desc = "LSP rename"
 				vim.keymap.set("n", "gR", vim.lsp.buf.rename, opts)
@@ -25,13 +25,13 @@ return {
 				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 
 				opts.desc = "Show LSP definitions"
-				vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 
 				opts.desc = "Show LSP implementations"
-				vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 
 				opts.desc = "Show LSP type definitions"
-				vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+				vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
 
 				opts.desc = "See available code actions"
 				vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
